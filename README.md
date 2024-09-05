@@ -12,5 +12,7 @@ This is an example of running Dioxus on Shuttle without being forced to compile 
 - Use `cargo shuttle run` to run the application locally.
 - Use `cargo shuttle deploy` to deploy the application to Shuttle!
 
+- You can serve Dioxus by itself by running `dx serve --bin build-wasm --features web` (the empty `fn main()` is to satisfy the compiler for when we deploy). This will grant you access to hot reload and a lot of other useful things that would otherwise be difficult to get.
+
 ## Limitations
 - The `build.rs` file currently doesn't support moving assets to the release folder locally yet, but this is relatively easy to fix yourself.
