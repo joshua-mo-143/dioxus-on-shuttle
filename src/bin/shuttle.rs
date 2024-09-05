@@ -3,7 +3,6 @@ use std::path::{Path, PathBuf};
 use dioxus::prelude::*;
 use dioxus_test_app::app;
 
-#[cfg(not(feature = "web"))]
 #[shuttle_runtime::main]
 async fn shuttle_main() -> Result<MyService, shuttle_runtime::Error> {
     Ok(MyService {})
