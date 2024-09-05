@@ -1,0 +1,2 @@
+assets = [".shuttle_executables/public/*"]
+name = "dioxus-test-app"

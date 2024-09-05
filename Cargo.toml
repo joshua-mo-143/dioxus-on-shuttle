@@ -1,0 +1,39 @@
+[package]
+name = "dioxus-test-app"
+version = "0.1.0"
+edition = "2021"
+publish = false
+default-run = "dioxus-test-app"
+build = "build.rs"
+
+[[bin]]
+name = "dioxus-test-app"
+path = "src/bin/shuttle.rs"
+required-features = ["server"]
+
+[[bin]]
+name = "build-wasm"
+path = "src/bin/build_wasm.rs"
+
+[features]
+web = ["dioxus/web"]
+server = [
+    "dioxus/axum",
+    "dep:shuttle-runtime",
+    "dep:tokio",
+    "dep:axum",
+    "dioxus-fullstack/server",
+]
+shuttle = ["server"]
+default = []
+
+
+[dependencies]
+dioxus = { version = "0.6.0-alpha.2", features = ["fullstack"] }
+dioxus-core = "0.6.0-alpha.2"
+dioxus-fullstack = { version = "0.6.0-alpha.2" }
+serde = "1.0.209"
+
+axum = { optional = true, version = "0.7.5" }
+shuttle-runtime = { optional = true, version = "0.47.0" }
+tokio = { optional = true, version = "1" }
