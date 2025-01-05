@@ -23,6 +23,8 @@ server = [
     "dep:tokio",
     "dep:axum",
     "dioxus-fullstack/server",
+    "dep:sqlx",
+    "dep:shuttle-shared-db",
 ]
 shuttle = ["server"]
 default = []
@@ -34,6 +36,15 @@ dioxus-core = "0.6.0-alpha.2"
 dioxus-fullstack = { version = "0.6.0-alpha.2" }
 serde = "1.0.209"
 
-axum = { optional = true, version = "0.7.5" }
-shuttle-runtime = { optional = true, version = "0.47.0" }
-tokio = { optional = true, version = "1" }
+axum = { optional = true, version = "0.7.5", features = ["macros"] }
+shuttle-runtime = { optional = true, version = "0.49.0" }
+tokio = { optional = true, version = "1", features = ["sync"] }
+sqlx = { version = "0.8.2", features = [
+    "macros",
+    "runtime-tokio-rustls",
+    "postgres",
+], optional = true }
+shuttle-shared-db = { version = "0.49.0", features = [
+    "postgres",
+    "sqlx",
+], optional = true }

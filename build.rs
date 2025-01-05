@@ -1,9 +1,8 @@
-use std::process::Command;
 use std::path::Path;
 use std::fs;
 
 fn main() {
-    let thing = if std::env::var("SHUTTLE").is_ok() { true } else { false };
+    let thing = std::env::var("SHUTTLE").is_ok();
     // Example: Running a shell command
     let src = Path::new("public");
     let dest = if thing { Path::new(".shuttle-executables/public") } else { Path::new("target/debug/public") };
